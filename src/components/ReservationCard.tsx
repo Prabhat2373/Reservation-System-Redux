@@ -10,6 +10,7 @@ interface Props {
 }
 
 const ReservationCard = ({ name, index }: Props) => {
+  
   const dispatch = useDispatch()
   return (
     <>

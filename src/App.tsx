@@ -12,13 +12,13 @@ function App() {
   const [reserInpName, setReserInpName] = useState("");
 
   // useSelector is used to access your state's value
-  const reservations = useSelector((state:RootState)=> state.reservations.value)
-  const customers = useSelector((state:RootState)=> state.customer.value)
+  const reservations = useSelector((state: RootState) => state.reservations.value)
+  const customers = useSelector((state: RootState) => state.customer.value)
 
   const dispatch = useDispatch();
 
-  const handleAddReservations = ()=>{
-    if(!reserInpName) return;
+  const handleAddReservations = () => {
+    if (!reserInpName) return;
     dispatch(addReservation(reserInpName));
     setReserInpName("")
   }
@@ -30,19 +30,19 @@ function App() {
           <div>
             <h5 className="reservation-header">Reservations</h5>
             <div className="reservation-cards-container">
-            {reservations.map((name, index)=>{
-              return <ReservationCard name={name} index={index} key={`${name}.1++`}/>
-            })}
+              {reservations.map((name, index) => {
+                return <ReservationCard name={name} index={index} key={`${name}.1++`} />
+              })}
             </div>
           </div>
           <div className="reservation-input-container">
-            <input value={reserInpName} onChange={(e)=> setReserInpName(e.target.value)}/>
+            <input value={reserInpName} onChange={(e) => setReserInpName(e.target.value)} />
             <button onClick={handleAddReservations}>Add</button>
           </div>
         </div>
         <div className="customer-food-container">
-          {customers.map((customer)=>{
-            return <CustomerCard id={customer.id} name={customer.name} food={customer.food} key={`${customer.id + 1}`}/>
+          {customers.map((customer, index) => {
+            return <CustomerCard id={customer.id} index={index} name={customer.name} food={customer.food} key={`${customer.id + 1}`} />
           })}
         </div>
       </div>

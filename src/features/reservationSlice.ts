@@ -25,3 +25,4 @@ export const { addReservation } = reservationSlice.actions
 export const { removeReservation } = reservationSlice.actions
 
 export default reservationSlice.reducer
+
